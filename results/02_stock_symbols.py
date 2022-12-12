@@ -1,0 +1,1 @@
+['AAPL', 'AMZN', 'NFLX', 'META', 'GOOGL']

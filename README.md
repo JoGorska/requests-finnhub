@@ -51,6 +51,12 @@ pycodestyle for linting
 
 # Steps to complete task:
 1. finding symbols
-I started with finding the stock symbols. I made two attempts to call api and filter the answer. These attempts are in files '01_brands_symbol_search.py' and '02_all_stock_symbols_search.py'.
+I started with finding the stock symbols. I made two attempts to call api and filter the answer. These attempts are in files 'symbols_search_fail' and 'symbols_search'.
+Failed search returned various symbols for the same brand that were ending with dot and two letters. None of them were resembling example that were given AAPL
+
+Following this attempt I used different page at finnhub to browse all comanies in US. I also modified my search to look for proper company names. 
+
+symbols_search returns me a list of stock symbols for each of the brands and gets passed to run.py.
+
 2. finding stock data
 To complete the task of getting the stock data - I created run.py file, that calls finnhub api and saves data into csv file inside results folder. Every day the script is run it saves a new file with new data in the file name.

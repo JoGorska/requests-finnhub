@@ -2,16 +2,12 @@ import requests
 import csv
 import os
 from datetime import date
-
+from symbols_search import SYMBOLS
 if os.path.isfile("env.py"):
     import env  # noqa
 
 
 API_KEY = os.environ.get('API_KEY')
-BRANDS = ['apple', 'amazon', 'netflix', 'facebook', 'google']
-COMPANIES = [
-    'APPLE INC', 'AMAZON.COM', 'NETFLIX INC', 'META PLATFORMS INC-CLASS', 'ALPHABET INC-CL']
-SYMBOLS = ['AAPL', 'AMZN', 'NFLX', 'META', 'GOOGL']
 
 
 def call_api(symbol):
