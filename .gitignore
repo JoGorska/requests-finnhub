@@ -1,2 +1,3 @@
 .vscode
 requests-finnhub/
+env.py

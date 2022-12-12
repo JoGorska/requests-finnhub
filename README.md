@@ -36,7 +36,7 @@ deactivate
 venv was used for local enviroment
 pycodestyle for linting
 
-# websites used in this tutorial:
+# steps to complete task:
 
 
 finding stock exchange symbols two files + google
