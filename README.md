@@ -26,6 +26,13 @@ Once venv is active:
 ```
 pip3 install  -r requirements.txt
 ```
+You need to create env.py file and add API_KEY obtained from https://finnhub.io/
+to run program 
+```
+python3 run.py
+```
+
+```
 to deactivate venv run:
 ```
 deactivate
@@ -38,7 +45,6 @@ pycodestyle for linting
 
 # steps to complete task:
 
+I started with finding the stock symbols. I made two attempts to call api and filter the answer. These attempts are in files '01_brands_symbol_search.py' and '02_all_stock_symbols_search.py'.
 
-finding stock exchange symbols two files + google
-
-getting results
+To complete the task of getting the stock data - I created run.py file. 
