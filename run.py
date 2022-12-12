@@ -1,6 +1,7 @@
 import requests
 import csv
 import os
+from datetime import date
 
 if os.path.isfile("env.py"):
     import env  # noqa
@@ -14,26 +15,28 @@ SYMBOLS = ['AAPL', 'AMZN', 'NFLX', 'META', 'GOOGL']
 
 
 def call_api(symbol):
-    token = 'ceatviiad3i52v0dd6b0ceatviiad3i52v0dd6bg'
-    params = dict(symbol=symbol, token=token)
-    r = requests.get('https://finnhub.io/api/v1/quote', params=params)
+    if API_KEY:
+        params = dict(symbol=symbol, token=API_KEY)
+        r = requests.get('https://finnhub.io/api/v1/quote', params=params)
 
-    # print(r.url)
-    res = r.json()
-    this_brand = {
-        'symbol': symbol,
-        'percentage_change': res['dp'],
-        'current_price': res['c'],
-        'last_close_price': res['pc']
-    }
-    return this_brand
+        res = r.json()
+
+        this_brand = {
+            'symbol': symbol,
+            'percentage_change': res['dp'],
+            'current_price': res['c'],
+            'last_close_price': res['pc']
+        }
+        return this_brand
+    else:
+        raise ValueError('Please set up env.py file with API KEY variable, more info in README.md')
 
 
 final_results = [call_api(symbol) for symbol in SYMBOLS]
 headers = ['stock_symbol', 'percentage_change', 'current_price', 'last_close_price']
+today = date.today()
 
-
-with open('final_results.csv', 'w') as f:
+with open(f'results/results-{today}.csv', 'w') as f:
     writer = csv.writer(f)
     writer.writerow(headers)
     for item in final_results:
